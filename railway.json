@@ -1,0 +1,10 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd backend && pip3 install -r requirements.txt && pip3 install --no-deps -e . && pip3 uninstall -y opencv-python; pip3 install --force-reinstall 'opencv-python-headless>=4.8.0'"
+  },
+  "deploy": {
+    "startCommand": "cd backend && gunicorn --bind 0.0.0.0:$PORT --worker-class gthread --workers 1 --threads 4 --timeout 120 wsgi:app",
+    "healthcheckPath": "/api/health"
+  }
+}

@@ -1,0 +1,2 @@
+[phases.setup]
+aptPkgs = ["libxmlsec1-dev", "pkg-config", "libssl-dev", "libffi-dev", "libgl1", "libglib2.0-0"]
